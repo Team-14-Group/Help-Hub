@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -17,11 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'username', 'password', 'first_name', 'last_name', 'email', 'phone_number', 'user_type'
     ];
-
+    public function volunteerRegistrations()
+    {
+        return $this->hasMany(VolunteerRegistration::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
