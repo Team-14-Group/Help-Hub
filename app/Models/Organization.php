@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class Organization extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'username', 'password', 'first_name', 'last_name', 'email', 'phone_number', 'user_type'
+        'name', 'website', 'contact_person', 'contact_email', 'location'
     ];
 
     public function volunteerRegistrations()
